@@ -1,0 +1,129 @@
+body{
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#buttons{
+    position: relative;
+    left: 30px;
+    top: 10px;
+}
+#yazi{
+    color: black;
+    font-size: 20px;
+    font-weight:bold; 
+}
+#updateForm{
+    color: black;
+    font-size: 20px;
+    font-weight:bold;
+}
+#searchForm{
+    width: 250px;
+    float: right;
+    margin-bottom:10px;
+    background-color: darkslategrey;
+    border-radius: 40px;
+}
+#search{
+    background: none;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+}
+#search::placeholder {
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#firstName{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#firstName::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#lastName{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#lastName::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#ardress{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#ardress::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#studentClass{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#studentClass::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#Name{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#Name::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#Surname{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#Surname::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#Adress{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#Adress::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#Class{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #3f3f3f;
+    color: whitesmoke
+}
+#Class::placeholder{
+    color: rgb(156, 155, 155);
+    opacity: 1;
+}
+#bottom-btn{
+    margin-bottom: 5px;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Uptade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="container text-center">
+            <h1 style="color: black;"><img src="update.svg" alt="" style="width: 20px;"> Update</h1>
+        </div>
+        <form id="updateForm">
+            <input type="hidden" id="studentId" name="id" value="">
+            <div class="form-group col-md-6">
+                <label for="Name" style="color: bisque;">Name : </label>
+                <input type="text" name="Name" id="Name" class="form-control" value="" required minlength="3" maxlength="50" placeholder="Please Enter First Name.."/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Surname" style="color: bisque;">Surname : </label>
+                <input type="text" name="Surname" id="Surname" class="form-control" value="" required minlength="2" maxlength="50" placeholder="Please Enter Last Name.."/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Adress" style="color: bisque;">Adress : </label>
+                <input type="text" name="Adress" id="Adress" class="form-control" value="" required minlength="2" maxlength="50" placeholder="Please Enter in 'Province/district' Format..."/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Class" style="color: bisque;">Class : </label>
+                <input type="text" name="Class" id="Class" class="form-control" value="" required minlength="3" maxlength="4" placeholder="Please Enter in 'Class/Branch' Format..."/>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="updateStudent()"><img src="update.svg" alt="" style="width: 10px;"> Update</button>
+            <button type="button" class="btn btn-success" onclick="goback()"> <img src="home.svg" alt="" style="width: 10px;">Home Page</button>
+        </form>
+    </div>
+    <script>
+        //Getting parameters from index page
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            document.getElementById('studentId').value = id;
+        };
+        //Performing deletion with incoming parameters
+        function updateStudent() {
+            const id = +document.getElementById('studentId').value;
+            const studentData = {
+                Id: id,
+                FirstName: document.getElementById('Name').value,
+                LastName: document.getElementById('Surname').value,
+                Ardress: document.getElementById('Adress').value,
+                StudentClass: document.getElementById('Class').value,
+            };
+            fetch(`https://localhost:7126/api/Students/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(studentData),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('The student has been updated successfully.');
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('An error occurred while updating the student.');
+                    }
+                })
+                .catch(error => console.error('Hata:', error));
+        }
+        function goback() {
+            window.location.href = `http://127.0.0.1:5500/index.html`;
+        }
+    </script>
+</body>
+</html>
